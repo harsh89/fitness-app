@@ -16,6 +16,13 @@ class ChallengeListing extends Component {
   state = {
     error: null,
     loading: false,
+    challengeStatus: 'READY'
+  }
+
+  setChallengeStatus = (status) => {
+    this.setState({
+      challengeStatus: status
+    })
   }
 
   componentDidMount = () => this.fetchData();
@@ -47,6 +54,8 @@ class ChallengeListing extends Component {
         loading={loading}
         challenges={challenges}
         reFetch={() => this.fetchData()}
+        setChallengeStatus={this.setChallengeStatus}
+        challengeStatus={this.state.challengeStatus}
       />
     );
   }
