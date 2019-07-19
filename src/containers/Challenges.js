@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-
-class RecipeListing extends Component {
+class ChallengeListing extends Component {
   static propTypes = {
     Layout: PropTypes.func.isRequired,
-    recipes: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+    challenges: PropTypes.arrayOf(PropTypes.shape()).isRequired,
     match: PropTypes.shape({ params: PropTypes.shape({}) }),
-    fetchRecipes: PropTypes.func.isRequired,
-    fetchMeals: PropTypes.func.isRequired,
+    fetchChallenges: PropTypes.func.isRequired
   }
 
   static defaultProps = {
@@ -23,12 +21,11 @@ class RecipeListing extends Component {
   componentDidMount = () => this.fetchData();
 
   fetchData = (data) => {
-    const { fetchRecipes, fetchMeals } = this.props;
+    const { fetchChallenges } = this.props;
 
     this.setState({ loading: true });
 
-    return fetchRecipes(data)
-      .then(() => fetchMeals())
+    return fetchChallenges(data)
       .then(() => this.setState({
         loading: false,
         error: null,
@@ -39,16 +36,16 @@ class RecipeListing extends Component {
   }
 
   render = () => {
-    const { Layout, recipes, match } = this.props;
+    const { Layout, challenges, match } = this.props;
     const { loading, error } = this.state;
     const id = (match && match.params && match.params.id) ? match.params.id : null;
 
     return (
       <Layout
-        recipeId={id}
+        challengeId={id}
         error={error}
         loading={loading}
-        recipes={recipes}
+        challenges={challenges}
         reFetch={() => this.fetchData()}
       />
     );
@@ -56,12 +53,11 @@ class RecipeListing extends Component {
 }
 
 const mapStateToProps = state => ({
-  recipes: state.recipes.recipes || {},
+  challenges: state.challenges.challenges || {},
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchMeals: dispatch.recipes.getMeals,
-  fetchRecipes: dispatch.recipes.getRecipes,
+  fetchChallenges: dispatch.challenges.getChallenges,
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(RecipeListing);
+export default connect(mapStateToProps, mapDispatchToProps)(ChallengeListing);
