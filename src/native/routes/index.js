@@ -27,7 +27,7 @@ import ProfileComponent from '../components/User/Profile';
 import AboutComponent from '../components/About';
 
 const LoggedInUserRoutes = (
-  <Stack hideNavBar type={ActionConst.REPLACE} key="main" panHandlers={null}>
+  <Stack hideNavBar type={ActionConst.REPLACE} key="main">
     <Tabs
       key="tabbar"
       type="replace"
@@ -39,6 +39,7 @@ const LoggedInUserRoutes = (
         title={AppConfig.appName.toUpperCase()}
         icon={() => <Icon name="planet" {...DefaultProps.icons} />}
         {...DefaultProps.navbarProps}
+        panHandlers={null}
       >
         <Scene key="home" component={AboutComponent} />
       </Stack>
@@ -48,6 +49,7 @@ const LoggedInUserRoutes = (
         title="CHALLENGES"
         icon={() => <Icon name="book" {...DefaultProps.icons} />}
         {...DefaultProps.navbarProps}
+        panHandlers={null}
       >
         <Scene key="challenges" component={ChallengesContainer} Layout={ChallengeListing} />
       </Stack>
@@ -58,6 +60,7 @@ const LoggedInUserRoutes = (
         type={ActionConst.RESET}
         icon={() => <Icon name="contact" {...DefaultProps.icons} />}
         {...DefaultProps.navbarProps}
+        panHandlers={null}
       >
         <Scene key="profileHome" component={MemberContainer} Layout={ProfileComponent} />
         <Scene
@@ -107,16 +110,17 @@ const LoggedInUserRoutes = (
 );
 
 const guestUserRoutes = (
-  <Stack hideNavBar hideNavBar type={ActionConst.REPLACE} key="auth" panHandlers={null}>
+  <Stack type={ActionConst.REPLACE} key="auth">
     <Scene
       key="login"
       title="LOGIN"
       {...DefaultProps.navbarProps}
       component={LoginContainer}
       Layout={LoginComponent}
+      hideNavBar
+      panHandlers={null}
     />
     <Scene
-      back
       key="signUp"
       title="SIGN UP"
       {...DefaultProps.navbarProps}
@@ -124,7 +128,6 @@ const guestUserRoutes = (
       Layout={SignUpComponent}
     />
     <Scene
-      back
       key="forgotPassword"
       title="FORGOT PASSWORD"
       {...DefaultProps.navbarProps}

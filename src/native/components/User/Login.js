@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  Container, Content, Form, Item, Label, Input, Text, Button, View,
+  Container, Content, Form, Item, Label, Input, Text, Button, View, ListItem, Body, Left, Icon
 } from 'native-base';
 import { Actions } from 'react-native-router-flux';
 import Messages from '../UI/Messages';
@@ -53,13 +53,15 @@ class Login extends React.Component {
     return (
       <Container>
         <Content>
+          <View padder />
+          <View padder />
+          <View padder />
           <View padder>
             <Header
-              title="Welcome to Studio Fitness"
+              title="Welcome to Studio Fitness App"
               content="Please use your email and password to login."
             />
             {error && <Messages message={error} />}
-            {success && <Messages type="success" message={success} />}
           </View>
 
           <Form>
@@ -90,6 +92,28 @@ class Login extends React.Component {
               </Button>
             </View>
           </Form>
+          <View>
+            <ListItem onPress={Actions.signUp} icon>
+              <Left>
+                <Icon name="add-circle" />
+              </Left>
+              <Body>
+                <Text>
+                  Sign Up
+                  </Text>
+              </Body>
+            </ListItem>
+            <ListItem onPress={Actions.forgotPassword} icon>
+              <Left>
+                <Icon name="help-buoy" />
+              </Left>
+              <Body>
+                <Text>
+                  Forgot Password
+                  </Text>
+              </Body>
+            </ListItem>
+          </View>
         </Content>
       </Container>
     );
