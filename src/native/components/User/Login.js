@@ -42,8 +42,8 @@ class Login extends React.Component {
     const { onFormSubmit } = this.props;
 
     return onFormSubmit(this.state)
-      .then(() => setTimeout(() => Actions.pop(), 1000))
-      .catch(() => {});
+      .then(() => setTimeout(() => Actions.main(), 1000))
+      .catch(() => { });
   }
 
   render() {
@@ -55,7 +55,7 @@ class Login extends React.Component {
         <Content>
           <View padder>
             <Header
-              title="Welcome back2"
+              title="Welcome to Studio Fitness"
               content="Please use your email and password to login."
             />
             {error && <Messages message={error} />}
@@ -86,7 +86,7 @@ class Login extends React.Component {
 
             <View padder>
               <Button block onPress={this.handleSubmit} disabled={loading}>
-                <Text>{loading ? 'Loading' : 'Login' }</Text>
+                <Text>{loading ? 'Loading' : 'Login'}</Text>
               </Button>
             </View>
           </Form>
