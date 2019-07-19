@@ -1,51 +1,66 @@
 {
   "challenges": [
     {
-      "id": 1,
-      "title": "Buy yourself a cup of tea",
       "desc": "Buy yourself a cup of tea from Hatti Kappi",
-      "rules": [
-        "Please use staircase",
-        "Create a video/image and upload as proof of submission"
-      ],
+      "id": 1,
       "image": "https://firebasestorage.googleapis.com/v0/b/react-native-starter-app.appspot.com/o/image-1.jpg?alt=media&token=9f7c839b-2d40-4660-a2a0-bf6c2f64a2e5",
-      "video": ""
+      "rules": ["Please use staircase", "Create a video/image and upload as proof of submission"],
+      "title": "Buy yourself a cup of tea",
+      "video": "https://www.youtube.com/watch?v=JVwH-JsiwNI"
     },
     {
-      "id": 2,
-      "title": "Use standing desk",
       "desc": "Use standing desk for work",
+      "id": 2,
+      "image": "https://firebasestorage.googleapis.com/v0/b/react-native-starter-app.appspot.com/o/image-1.jpg?alt=media&token=9f7c839b-2d40-4660-a2a0-bf6c2f64a2e5",
       "rules": [
         "Please use standing desk in studio",
         "Create a video/image and upload as proof of submission"
       ],
-      "image": "https://firebasestorage.googleapis.com/v0/b/react-native-starter-app.appspot.com/o/image-1.jpg?alt=media&token=9f7c839b-2d40-4660-a2a0-bf6c2f64a2e5",
+      "title": "Use standing desk",
       "video": ""
-    }
-  ],
-  "user": [
-    {
-      "id": 1,
-      "userEmail": "abc@abc.com",
-      "password": "password",
-      "firstName": "abc",
-      "lastName": "xyz",
-      "challenges": [
-        {
-          "id": 1,
-          "status": "accepted"
-        }
-      ]
     }
   ],
   "response": [
     {
-      "id": 1,
       "challengeId": 1,
-      "userId": 1,
       "comment": "Tea was sugerless",
+      "id": 1,
       "image": "",
+      "userId": 1,
       "video": ""
+    }
+  ],
+  "users": {
+    "RUGzO2Cv65ejRToqmGb9ZXosx9E3": {
+      "firstName": "Shardendu",
+      "lastLoggedIn": 1563541976787,
+      "lastName": "Kantha",
+      "signedUp": 1563526268416
+    },
+    "bNXKH9ZJOiT5dKG3Sp4bxNxjhNq2": {
+      "firstName": "Harsh",
+      "lastLoggedIn": 1563537903234,
+      "lastName": "Sharma",
+      "signedUp": 1563537887262
+    }
+  },
+  "articleTable": [
+    {
+      "id": 1,
+      "title": "this is a dummy thread",
+      "description": "This is dummy thread description",
+      "postedBy": "RUGzO2Cv65ejRToqmGb9ZXosx9E3",
+      "postedDate": "1563537903234",
+      "active": true
+    }
+  ],
+  "discussions": [
+    {
+      "id": 1,
+      "threadId": 1,
+      "postedBy": "RUGzO2Cv65ejRToqmGb9ZXosx9E3",
+      "commentData": "this is a dummy comment",
+      "datePosted": "1563537903234"
     }
   ]
 }

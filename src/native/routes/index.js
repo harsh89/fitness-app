@@ -9,6 +9,10 @@ import ChallengesContainer from '../../containers/Challenges';
 import ChallengeListing from '../components/Challenge/Listing';
 import ChallengeDetailComponent from '../components/Challenge/Single';
 
+import ArticlesContainer from '../../containers/Articles';
+import ArticleListing from '../components/Article/Listing';
+import ArticleDetailComponent from '../components/Article/Details';
+
 import SignUpContainer from '../../containers/SignUp';
 import SignUpComponent from '../components/User/SignUp';
 
@@ -28,12 +32,7 @@ import AboutComponent from '../components/About';
 
 const LoggedInUserRoutes = (
   <Stack hideNavBar type={ActionConst.REPLACE} key="main">
-    <Tabs
-      key="tabbar"
-      type="replace"
-      showLabel={false}
-      {...DefaultProps.tabProps}
-    >
+    <Tabs key="tabbar" type="replace" showLabel={false} {...DefaultProps.tabProps}>
       <Stack
         key="home"
         title={AppConfig.appName.toUpperCase()}
@@ -52,6 +51,15 @@ const LoggedInUserRoutes = (
         panHandlers={null}
       >
         <Scene key="challenges" component={ChallengesContainer} Layout={ChallengeListing} />
+      </Stack>
+
+      <Stack
+        key="articles"
+        title="ARTICLES"
+        icon={() => <Icon name="book" {...DefaultProps.icons} />}
+        {...DefaultProps.navbarProps}
+      >
+        <Scene key="articles" component={ArticlesContainer} Layout={ArticleListing} />
       </Stack>
 
       <Stack
@@ -105,6 +113,16 @@ const LoggedInUserRoutes = (
       {...DefaultProps.navbarProps}
       component={ChallengesContainer}
       Layout={ChallengeDetailComponent}
+    />
+
+    <Scene
+      back
+      clone
+      key="article"
+      title="ARTICLE"
+      {...DefaultProps.navbarProps}
+      component={ArticlesContainer}
+      Layout={ArticleDetailComponent}
     />
   </Stack>
 );
