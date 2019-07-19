@@ -2,15 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Image } from 'react-native';
 import {
-  Container, Content, Card, CardItem, Body, H3, List, ListItem, Text,
+  Container, Content, Card, CardItem, Body, H3, List, ListItem, Text, Button
 } from 'native-base';
 import { errorMessages } from '../../../constants/messages';
 import Error from '../UI/Error';
 import Spacer from '../UI/Spacer';
 
+// import { Video } from 'expo-av';
+
 const ChallengeView = ({
-  error, challenges, challengeId,
+  error, challenges, challengeId, challengeStatus, setChallengeStatus
 }) => {
+
+  
   // Error
   if (error) return <Error content={error} />;
 
@@ -30,12 +34,21 @@ const ChallengeView = ({
     </ListItem>
   ));
 
+  const takePartInChallenge = () => {
+    setChallengeStatus('TAKEPART');
+  }
+
+  const completeChallenge = () => {
+    
+  }
+
+  const exitChallenge = () => {
+    setChallengeStatus('READY');
+  }
+
   return (
     <Container>
       <Content padder>
-        <Image source={{ uri: challenge.image }} style={{ height: 100, width: null, flex: 1 }} />
-
-        <Spacer size={25} />
         <H3>{challenge.title}</H3>
         <Spacer size={15} />
 
@@ -50,6 +63,28 @@ const ChallengeView = ({
           </CardItem>
         </Card>
 
+        {challenge.image && (
+          <>
+            <Image source={{ uri: challenge.image }} style={{ height: 300, width: null, flex: 1 }} />
+            <Spacer size={25} />
+          </>
+        )}
+
+        {/* {challenge.video && (
+          <>
+            <Video
+              source={{ uri: challenge.video }}
+              rate={1.0}
+              volume={1.0}
+              isMuted={false}
+              resizeMode="cover"
+              shouldPlay
+              isLooping
+              style={{ width: 300, height: 300 }}
+            />
+          </>
+        )} */}
+
         <Card>
           <CardItem header bordered>
             <Text>Rules</Text>
@@ -62,6 +97,45 @@ const ChallengeView = ({
         </Card>
 
         <Spacer size={20} />
+
+        {challengeStatus === 'READY' && (
+          <Button
+            block
+            onPress={takePartInChallenge}
+            title="Take Part"
+            color="#841584"
+            accessibilityLabel="Choose to take part in this challenge"
+          >
+            <Text>Take Part</Text>
+          </Button>
+        )}
+
+        {challengeStatus === 'TAKEPART' && (
+          <ListItem>
+            <Button
+              block
+              onPress={completeChallenge}
+              title="Complete"
+              color="#841584"
+              accessibilityLabel="Choose to complete the challenge"
+              style={{width: '48%'}}
+            >
+              <Text>Complete</Text>
+            </Button>
+
+            <Button
+              block
+              onPress={exitChallenge}
+              title="Exit"
+              color="#841584"
+              accessibilityLabel="Choose to exit the challenge"
+              style={{width: '48%', left: '4%'}}
+              >
+              <Text>Exit</Text>
+            </Button>
+          </ListItem>
+        )}
+
       </Content>
     </Container>
   );
@@ -71,10 +145,13 @@ ChallengeView.propTypes = {
   error: PropTypes.string,
   challengeId: PropTypes.string.isRequired,
   challenges: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+  challengeStatus: PropTypes.string,
+  setChallengeStatus: PropTypes.func.isRequired
 };
 
 ChallengeView.defaultProps = {
   error: null,
+  challengeStatus: 'READY'
 };
 
 export default ChallengeView;
