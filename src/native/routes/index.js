@@ -24,7 +24,8 @@ import UpdateProfileComponent from '../components/User/UpdateProfile';
 import MemberContainer from '../../containers/Member';
 import ProfileComponent from '../components/User/Profile';
 
-import AboutComponent from '../components/About';
+import DrinikingWaterContainer from '../../containers/DrinkingWater';
+import DrinikingWaterComponent from '../components/DrinkingWater/Reminder';
 
 const Index = (
   <Stack hideNavBar>
@@ -37,12 +38,13 @@ const Index = (
         {...DefaultProps.tabProps}
       >
         <Stack
-          key="home"
+          key="drinkingWater"
+          title="REMINDER"
           title={AppConfig.appName.toUpperCase()}
           icon={() => <Icon name="planet" {...DefaultProps.icons} />}
           {...DefaultProps.navbarProps}
         >
-          <Scene key="home" component={AboutComponent} />
+          <Scene key="drinkingWater" component={DrinikingWaterContainer} Layout={DrinikingWaterComponent} />
         </Stack>
 
         <Stack

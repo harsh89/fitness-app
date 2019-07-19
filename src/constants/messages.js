@@ -23,4 +23,10 @@ export const errorMessages = {
   // Challenges
   challenge404: 'Challenge not found',
   missingMealId: 'Missing meal definition',
+
+  // Drinking water Reminder
+  missingStartTime: 'Please select valid start time',
+  missingEndTime: 'Please select valid end time',
+  missingTarget: 'Please enter target',
+  missingReminderInterval: 'Please select valid interval'
 };
