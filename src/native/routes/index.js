@@ -5,9 +5,9 @@ import { Icon } from 'native-base';
 import DefaultProps from '../constants/navigation';
 import AppConfig from '../../constants/config';
 
-import RecipesContainer from '../../containers/Recipes';
-import RecipeListingComponent from '../components/Recipe/Listing';
-import RecipeSingleComponent from '../components/Recipe/Single';
+import ChallengesContainer from '../../containers/Challenges';
+import ChallengeListing from '../components/Challenge/Listing';
+import ChallengeDetailComponent from '../components/Challenge/Single';
 
 import SignUpContainer from '../../containers/SignUp';
 import SignUpComponent from '../components/User/SignUp';
@@ -46,12 +46,12 @@ const Index = (
         </Stack>
 
         <Stack
-          key="recipes"
-          title="RECIPES"
+          key="challenges"
+          title="CHALLENGES"
           icon={() => <Icon name="book" {...DefaultProps.icons} />}
           {...DefaultProps.navbarProps}
         >
-          <Scene key="recipes" component={RecipesContainer} Layout={RecipeListingComponent} />
+          <Scene key="challenges" component={ChallengesContainer} Layout={ChallengeListing} />
         </Stack>
 
         <Stack
@@ -100,11 +100,11 @@ const Index = (
     <Scene
       back
       clone
-      key="recipe"
-      title="RECIPE"
+      key="challenge"
+      title="CHALLENGE"
       {...DefaultProps.navbarProps}
-      component={RecipesContainer}
-      Layout={RecipeSingleComponent}
+      component={ChallengesContainer}
+      Layout={ChallengeDetailComponent}
     />
   </Stack>
 );

@@ -15,13 +15,15 @@ We've created a quick little "API server" on [Google's Firebase Platform](https:
     ".read": false,
     ".write": false,
 
-    "meals": {
-      ".read": true
+    "response": {
+      ".read": true,
+      ".write": true
     },
 
-    "recipes": {
+    "challenges": {
       ".read": true,
-    	".indexOn": ["category"]
+      ".write": true,
+    	".indexOn": ["id"]
     },
 
     "users": {
@@ -37,14 +39,7 @@ We've created a quick little "API server" on [Google's Firebase Platform](https:
           ".validate": "(root.child('users/'+auth.uid+'/role').val() === 'admin' && newData.val() === 'admin') || newData.val() === 'user'"
         }
       }
-    },
-
-    "favourites": {
-    	"$uid": {
-      	".read": "auth != null && auth.uid == $uid",
-      	".write": "auth != null && auth.uid == $uid"
-    	}
-  	}
+    }
   }
 }
 ```

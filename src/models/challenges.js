@@ -1,12 +1,12 @@
 import { Firebase, FirebaseRef } from '../lib/firebase';
-import initState from '../store/recipes';
+import initState from '../store/challenges';
 
 export default {
   /**
    *  Initial state
    */
   state: {
-    recipes: initState.recipes,
+    challenges: initState.challenges,
     meals: initState.meals,
   },
 
@@ -20,23 +20,21 @@ export default {
         meals: payload,
       };
     },
-    replaceRecipes(state, payload) {
-      let recipes = [];
+    replacechallenges(state, payload) {
+      let challenges = [];
       // Pick out the props I need
       if (payload && typeof payload === 'object') {
-        recipes = payload.map(item => ({
+        challenges = payload.map(item => ({
           id: item.id,
           title: item.title,
-          body: item.body,
-          category: item.category,
+          desc: item.desc,
           image: item.image,
-          author: item.author,
-          ingredients: item.ingredients,
-          method: item.method,
+          rules: item.rules,
+          video: item.video
         }));
       }
 
-      return { ...state, recipes };
+      return { ...state, challenges };
     },
   },
 
@@ -61,17 +59,17 @@ export default {
     },
 
     /**
-      * Get Recipes
+      * Get challenges
       *
      * @return {Promise}
       */
-    getRecipes() {
+    getChallenges() {
       if (Firebase === null) return () => new Promise(resolve => resolve());
 
-      return new Promise(resolve => FirebaseRef.child('recipes')
+      return new Promise(resolve => FirebaseRef.child('challenges')
         .on('value', (snapshot) => {
           const data = snapshot.val() || [];
-          this.replaceRecipes(data);
+          this.replacechallenges(data);
           return resolve();
         })).catch((err) => { throw err.message; });
     },
