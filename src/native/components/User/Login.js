@@ -55,7 +55,7 @@ class Login extends React.Component {
         <Content>
           <View padder>
             <Header
-              title="Welcome back"
+              title="Welcome back2"
               content="Please use your email and password to login."
             />
             {error && <Messages message={error} />}

@@ -1,5 +1,28 @@
-node_modules
+node_modules/**/*
+.vscode/
+.expo/
+npm-debug.*
+*.jks
+*.p12
+*.key
+*.mobileprovision
 yarn-error.log
 yarn.lock
 .expo
 package.lock
+
+# OSX
+#
+.DS_Store
+
+# Android/IntelliJ
+android/
+.idea
+.tmp
+.gradle
+local.properties
+*.iml
+
+# Build
+build/
+
