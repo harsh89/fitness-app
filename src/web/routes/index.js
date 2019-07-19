@@ -8,9 +8,9 @@ import TemplateSidebar from '../components/Templates/Sidebar';
 // Routes
 import Home from '../components/Home';
 
-import RecipesContainer from '../../containers/Recipes';
-import RecipeListingComponent from '../components/Recipe/Listing';
-import RecipeSingleComponent from '../components/Recipe/Single';
+import ChallengesContainer from '../../containers/Challenges';
+import ChallengeListing from '../components/Challenge/Listing';
+import ChallengeDetailComponent from '../components/Challenge/Single';
 
 import SignUpContainer from '../../containers/SignUp';
 import SignUpComponent from '../components/User/SignUp';
@@ -70,18 +70,18 @@ const Index = () => (
       )}
     />
     <Route
-      path="/recipes"
+      path="/challenges"
       render={props => (
-        <TemplateSidebar pageTitle="Recipes">
-          <RecipesContainer {...props} Layout={RecipeListingComponent} />
+        <TemplateSidebar pageTitle="Challenges">
+          <ChallengesContainer {...props} Layout={ChallengeListing} />
         </TemplateSidebar>
       )}
     />
     <Route
-      path="/recipe/:id"
+      path="/challenge/:id"
       render={props => (
-        <TemplateSidebar pageTitle="Recipe View">
-          <RecipesContainer {...props} Layout={RecipeSingleComponent} />
+        <TemplateSidebar pageTitle="Challenge View">
+          <ChallengesContainer {...props} Layout={ChallengeDetailComponent} />
         </TemplateSidebar>
       )}
     />
