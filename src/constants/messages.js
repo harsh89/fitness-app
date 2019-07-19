@@ -20,7 +20,7 @@ export const errorMessages = {
   missingPassword: 'Password is missing',
   passwordsDontMatch: 'Passwords do not match',
 
-  // Recipes
-  recipe404: 'Recipe not found',
+  // Challenges
+  challenge404: 'Challenge not found',
   missingMealId: 'Missing meal definition',
 };

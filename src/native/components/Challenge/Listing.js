@@ -12,10 +12,10 @@ import Error from '../UI/Error';
 import Header from '../UI/Header';
 import Spacer from '../UI/Spacer';
 
-const RecipeListing = ({
+const ChallengeListing = ({
   error,
   loading,
-  recipes,
+  challenges,
   reFetch,
 }) => {
   // Loading
@@ -26,19 +26,19 @@ const RecipeListing = ({
 
   const keyExtractor = item => item.id;
 
-  const onPress = item => Actions.recipe({ match: { params: { id: String(item.id) } } });
+  const onPress = item => Actions.challenge({ match: { params: { id: String(item.id) } } });
 
   return (
     <Container>
       <Content padder>
         <Header
-          title="Top Recipes"
+          title="Top Challenges"
           content="This is here to show how you can read and display data from a data source (in our case, Firebase)."
         />
 
         <FlatList
           numColumns={2}
-          data={recipes}
+          data={challenges}
           renderItem={({ item }) => (
             <Card transparent style={{ paddingHorizontal: 6 }}>
               <CardItem cardBody>
@@ -68,7 +68,7 @@ const RecipeListing = ({
                     onPress={() => onPress(item)}
                   >
                     <Text>
-                      View Recipe
+                      View Challenge
                     </Text>
                   </Button>
                   <Spacer size={5} />
@@ -91,16 +91,16 @@ const RecipeListing = ({
   );
 };
 
-RecipeListing.propTypes = {
+ChallengeListing.propTypes = {
   error: PropTypes.string,
   loading: PropTypes.bool.isRequired,
-  recipes: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+  challenges: PropTypes.arrayOf(PropTypes.shape()).isRequired,
   reFetch: PropTypes.func,
 };
 
-RecipeListing.defaultProps = {
+ChallengeListing.defaultProps = {
   error: null,
   reFetch: null,
 };
 
-export default RecipeListing;
+export default ChallengeListing;
