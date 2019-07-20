@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "445915976773",
+    "firebase_url": "https://fitness-app-97b68.firebaseio.com",
+    "project_id": "fitness-app-97b68",
+    "storage_bucket": "fitness-app-97b68.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:445915976773:android:26045e26320e0e88",
+        "android_client_info": {
+          "package_name": "com.deloitte.fitness"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "445915976773-00683415epvp83f28frlihoitj9d9tm8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxRb3vVmuKllhiPAXenLVvLvcZmc6Q0Zw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "445915976773-00683415epvp83f28frlihoitj9d9tm8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
