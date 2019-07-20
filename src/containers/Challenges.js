@@ -16,12 +16,19 @@ class ChallengeListing extends Component {
   state = {
     error: null,
     loading: false,
-    challengeStatus: 'READY'
+    challengeStatus: 'READY',
+    ImageSource: null
   }
 
   setChallengeStatus = (status) => {
     this.setState({
       challengeStatus: status
+    })
+  }
+
+  setImageSource = (imgSrc) => {
+    this.setState({
+      ImageSource: imgSrc
     })
   }
 
@@ -56,6 +63,8 @@ class ChallengeListing extends Component {
         reFetch={() => this.fetchData()}
         setChallengeStatus={this.setChallengeStatus}
         challengeStatus={this.state.challengeStatus}
+        ImageSource={this.ImageSource}
+        setImageSource={this.setImageSource}
       />
     );
   }

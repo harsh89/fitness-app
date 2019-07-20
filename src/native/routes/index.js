@@ -8,6 +8,7 @@ import AppConfig from '../../constants/config';
 import ChallengesContainer from '../../containers/Challenges';
 import ChallengeListing from '../components/Challenge/Listing';
 import ChallengeDetailComponent from '../components/Challenge/Single';
+import ChallengeCompleteComponent from '../components/Challenge/Complete';
 
 import ArticlesContainer from '../../containers/Articles';
 import ArticleListing from '../components/Article/Listing';
@@ -115,6 +116,17 @@ const LoggedInUserRoutes = (
       component={ChallengesContainer}
       Layout={ChallengeDetailComponent}
     />
+
+    <Scene
+      back
+      clone
+      key="completeChallenge"
+      title="COMPLETECHALLENGE"
+      {...DefaultProps.navbarProps}
+      component={ChallengesContainer}
+      Layout={ChallengeCompleteComponent}
+    />
+
 
     <Scene
       back

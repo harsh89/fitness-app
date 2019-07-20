@@ -7,6 +7,7 @@ import {
 import { errorMessages } from '../../../constants/messages';
 import Error from '../UI/Error';
 import Spacer from '../UI/Spacer';
+import { Actions } from 'react-native-router-flux';
 
 // import { Video } from 'expo-av';
 
@@ -38,9 +39,7 @@ const ChallengeView = ({
     setChallengeStatus('TAKEPART');
   }
 
-  const completeChallenge = () => {
-    
-  }
+  const completeChallenge = item => Actions.completeChallenge({ match: { params: { id: String(item.id) } } });
 
   const exitChallenge = () => {
     setChallengeStatus('READY');
