@@ -44,7 +44,7 @@ class DrinkingWater extends Component {
     return onIntakeSubmit(data)
       .then(() => this.setState({
         loading: false,
-        success: 'Reminder set successfully',
+        success: 'Intke updated',
         error: null,
       })).catch((err) => {
         this.setState({

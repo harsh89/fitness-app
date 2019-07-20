@@ -47,9 +47,20 @@ export default {
 
     submitIntake(formData) {
       console.log(formData);
-      let totalIntervalFinished = `${formData.intakeObj.id},`;
-      let totalIntake =  formData.drinkingWaterReminder.totalIntake + formData.intakeObj.intake;
-      return FirebaseRef.child(`users/${formData.uid}/drinkingWaterReminder`).update({ totalIntervalFinished, totalIntake });
+      let totalIntervalFinished = `${formData.intakeObj.currentInterval.id},`;
+      let totalIntake =  Number(formData.drinkingWaterReminder.totalIntake) + Number(formData.intakeObj.intake);
+      // return FirebaseRef.child(`users/${formData.uid}/drinkingWaterReminder`).update({ totalIntervalFinished, totalIntake });
+      return new Promise(async (resolve, reject) => {
+        return FirebaseRef.child(`users/${formData.uid}/drinkingWaterReminder`)
+          .update({ totalIntervalFinished, totalIntake })
+          .then(() => {
+            this.listenForMemberProfileUpdates(dispatch)
+            return resolve();
+          })
+          .catch(reject);
+      }).catch(err => {
+        throw err.message;
+      });
       
     },
 
