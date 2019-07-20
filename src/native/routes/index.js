@@ -28,20 +28,21 @@ import UpdateProfileComponent from '../components/User/UpdateProfile';
 import MemberContainer from '../../containers/Member';
 import ProfileComponent from '../components/User/Profile';
 
-import AboutComponent from '../components/About';
+import DrinikingWaterContainer from '../../containers/DrinkingWater';
+import DrinikingWaterComponent from '../components/DrinkingWater/Reminder';
 
 const LoggedInUserRoutes = (
   <Stack hideNavBar type={ActionConst.REPLACE} key="main">
     <Tabs key="tabbar" type="replace" showLabel={false} {...DefaultProps.tabProps}>
-      <Stack
-        key="home"
-        title={AppConfig.appName.toUpperCase()}
-        icon={() => <Icon name="planet" {...DefaultProps.icons} />}
-        {...DefaultProps.navbarProps}
-        panHandlers={null}
-      >
-        <Scene key="home" component={AboutComponent} />
-      </Stack>
+    <Stack
+          key="drinkingWater"
+          title="REMINDER"
+          title={AppConfig.appName.toUpperCase()}
+          icon={() => <Icon name="planet" {...DefaultProps.icons} />}
+          {...DefaultProps.navbarProps}
+        >
+          <Scene key="drinkingWater" component={DrinikingWaterContainer} Layout={DrinikingWaterComponent} />
+        </Stack>
 
       <Stack
         key="challenges"

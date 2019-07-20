@@ -6,20 +6,13 @@ export default {
    *  Initial state
    */
   state: {
-    challenges: initState.challenges,
-    meals: initState.meals,
+    challenges: initState.challenges
   },
 
   /**
    * Reducers
    */
   reducers: {
-    replaceMeals(state, payload) {
-      return {
-        ...state,
-        meals: payload,
-      };
-    },
     replacechallenges(state, payload) {
       let challenges = [];
       // Pick out the props I need
@@ -35,7 +28,7 @@ export default {
       }
 
       return { ...state, challenges };
-    },
+    }
   },
 
   /**
@@ -43,35 +36,22 @@ export default {
    */
   effects: () => ({
     /**
-     * Get Meals
+     * Get challenges
      *
      * @return {Promise}
      */
-    getMeals() {
-      if (Firebase === null) return () => new Promise(resolve => resolve());
-
-      return new Promise((resolve, reject) => FirebaseRef.child('meals').once('value')
-        .then((snapshot) => {
-          const data = snapshot.val() || [];
-          this.replaceMeals(data);
-          return resolve();
-        }).catch(reject)).catch((err) => { throw err.message; });
-    },
-
-    /**
-      * Get challenges
-      *
-     * @return {Promise}
-      */
     getChallenges() {
       if (Firebase === null) return () => new Promise(resolve => resolve());
 
-      return new Promise(resolve => FirebaseRef.child('challenges')
-        .on('value', (snapshot) => {
+      return new Promise(resolve =>
+        FirebaseRef.child('challenges').on('value', snapshot => {
           const data = snapshot.val() || [];
           this.replacechallenges(data);
           return resolve();
-        })).catch((err) => { throw err.message; });
-    },
-  }),
+        })
+      ).catch(err => {
+        throw err.message;
+      });
+    }
+  })
 };
