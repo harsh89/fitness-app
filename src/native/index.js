@@ -55,7 +55,7 @@ export default class App extends React.Component {
     let sendAfterFiveSeconds = Date.now();
     sendAfterFiveSeconds += 5000;
 
-    const schedulingOptions = { time: sendAfterFiveSeconds, repeat: 'minute' };
+    const schedulingOptions = { time: sendAfterFiveSeconds };
     Notifications.scheduleLocalNotificationAsync(
       localnotification,
       schedulingOptions
@@ -64,7 +64,7 @@ export default class App extends React.Component {
   listenForNotifications = () => {
     Notifications.addListener(notification => {
       if (notification.origin === 'received' && Platform.OS === 'ios') {
-        Alert.alert(notification.title, notification.body);
+        // Alert.alert(notification.title, notification.body);
       }
     });
   };
