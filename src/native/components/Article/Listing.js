@@ -54,10 +54,7 @@ const ArticleListing = ({ error, loading, articles, reFetch, memberData, submitA
   return (
     <Container>
       <Content padder>
-        <Header
-          title="Top articles"
-          content="This is here to show how you can read and display data from a data source (in our case, Firebase)."
-        />
+        <Header title="Top topics" content="This is where you can read trending topics" />
 
         <FlatList
           numColumns={2}
@@ -86,7 +83,7 @@ const ArticleListing = ({ error, loading, articles, reFetch, memberData, submitA
           <Label>Add an article</Label>
           <Textarea
             disabled={loading}
-            style={{ width: 302, height: 200, flex: 1, padding: 0 }}
+            style={{ width: 302, height: 200, flex: 1, padding: 0, backgroundColor: '#FFFFFF' }}
             bordered
             placeholder="Textarea"
             onChangeText={v => this.handleChange('article', v)}

@@ -5,10 +5,7 @@
     "slug": "react-native-starter-kit",
     "privacy": "public",
     "sdkVersion": "32.0.0",
-    "platforms": [
-      "ios",
-      "android"
-    ],
+    "platforms": ["ios", "android"],
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./src/images/app-icon.png",
@@ -20,26 +17,6 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
-    "ios": {
-      "supportsTablet": true,
-      "bundleIdentifier": "com.deloitte.fitness",
-      "publishBundlePath": "ios/react-native-starter-kit/Supporting/shell-app.bundle",
-      "publishManifestPath": "ios/react-native-starter-kit/Supporting/shell-app-manifest.json"
-    },
-    "isDetached": false,
-    "detach": {
-      "iosExpoViewUrl": "https://s3.amazonaws.com/exp-exponent-view-code/ios-v2.10.6-sdk32.0.0-e50ee83a-41bd-4965-b067-4c815a3b3fcc.tar.gz",
-      "androidExpoViewUrl": "https://s3.amazonaws.com/exp-exponent-view-code/android-v2.10.8-sdk32.0.0-bca0f957-de78-44c8-91ed-f3151372d79d.tar.gz"
-    },
-    "scheme": "expb184c48e5b114a1588ed33bcc3cb5961",
-    "android": {
-      "package": "com.deloitte.fitness",
-      "publishBundlePath": "android/app/src/main/assets/shell-app.bundle",
-      "publishManifestPath": "android/app/src/main/assets/shell-app-manifest.json",
-      "googleServicesFile": "./google-services.json"
-    }
+    "assetBundlePatterns": ["**/*"]
   }
 }

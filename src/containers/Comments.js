@@ -88,7 +88,9 @@ class CommentsListing extends Component {
 
   render = () => {
     // Comment listing
-    const commentList = this.props.comments.map(item => (
+
+    const { comments } = this.props;
+    const commentList = comments.map(item => (
       <Card key={item.id}>
         <CardItem header bordered>
           <Text>Posted by: {item.postedBy}</Text>
@@ -128,7 +130,7 @@ class CommentsListing extends Component {
             <Text>Comments</Text>
           </CardItem>
           <CardItem>
-            <Content>{commentList}</Content>
+            <Content>{comments && comments.length && commentList}</Content>
           </CardItem>
         </Card>
       </Content>
