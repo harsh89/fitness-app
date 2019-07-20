@@ -14,7 +14,10 @@ const DiscDetails = ({ error, articles, articleId }) => {
   // Get this article from all articles
   let article = null;
   if (articleId && articles) {
-    article = articles.find(item => parseInt(item.id, 10) === parseInt(articleId, 10));
+    article = articles.find(item => item.id, 10 === articleId, 10);
+    console.log('article data');
+    console.log(articleId);
+    console.log(article);
   }
 
   // article not found
@@ -26,14 +29,13 @@ const DiscDetails = ({ error, articles, articleId }) => {
         <Spacer size={25} />
         <H3>{article.title}</H3>
         <Spacer size={15} />
-
         <Card>
           <CardItem header bordered>
             <Text>About this article</Text>
           </CardItem>
           <CardItem>
             <Body>
-              <Text>{article.description}</Text>
+              <Text>{article.articleDesc}</Text>
             </Body>
           </CardItem>
         </Card>
