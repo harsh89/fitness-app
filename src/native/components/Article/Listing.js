@@ -86,7 +86,7 @@ const ArticleListing = ({ error, loading, articles, reFetch, memberData, submitA
           <Label>Add an article</Label>
           <Textarea
             disabled={loading}
-            style={{ width: 302, height: 200, flex: 1, padding: 0 }}
+            style={{ width: 302, height: 200, flex: 1, padding: 0, backgroundColor: '#FFFFFF' }}
             bordered
             placeholder="Textarea"
             onChangeText={v => this.handleChange('article', v)}
