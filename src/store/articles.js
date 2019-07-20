@@ -3,7 +3,7 @@ export default {
     {
       id: 0,
       title: '---- --- -- ------',
-      description: '---- --- -- ------',
+      articleDesc: '---- --- -- ------',
       active: true,
       postedDate: 'RUGzO2Cv65ejRToqmGb9ZXosx9E3',
       postedBy: '---- -----'

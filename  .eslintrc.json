@@ -1,6 +1,6 @@
 {
-  "extends": ["airbnb", "prettier"],
-  "plugins": ["prettier"],
+  "extends": ["airbnb"],
+  "plugins": [],
   "env": {
     "node": true,
     "builtin": true
@@ -35,17 +35,11 @@
     "react/jsx-filename-extension": [
       1,
       {
-        "extensions": [
-          ".js",
-          ".jsx"
-        ]
+        "extensions": [".js", ".jsx"]
       }
     ],
     "react/prop-types": 1,
-    "import/imports-first": [
-      "error",
-      "absolute-first"
-    ],
+    "import/imports-first": ["error", "absolute-first"],
     "import/newline-after-import": "error",
     "block-scoped-var": 1,
     "camelcase": 1,
@@ -57,24 +51,15 @@
       }
     ],
     "consistent-return": 2,
-    "curly": [
-      2,
-      "all"
-    ],
+    "curly": [2, "all"],
     "dot-notation": [
       1,
       {
         "allowKeywords": true
       }
     ],
-    "eqeqeq": [
-      2,
-      "allow-null"
-    ],
-    "global-strict": [
-      0,
-      "never"
-    ],
+    "eqeqeq": [2, "allow-null"],
+    "global-strict": [0, "never"],
     "guard-for-in": 2,
     "indent": [
       1,
@@ -126,10 +111,7 @@
     "no-alert": 1,
     "no-bitwise": 2,
     "no-caller": 2,
-    "no-cond-assign": [
-      2,
-      "except-parens"
-    ],
+    "no-cond-assign": [2, "except-parens"],
     "no-debugger": 1,
     "no-dupe-args": 2,
     "no-dupe-keys": 2,
@@ -181,15 +163,9 @@
         "object": true
       }
     ],
-    "quotes": [
-      0,
-      "single"
-    ],
+    "quotes": [0, "single"],
     "radix": 2,
-    "semi": [
-      0,
-      "never"
-    ],
+    "semi": [0, "never"],
     "strict": 0,
     "space-before-blocks": 1,
     "space-before-function-paren": [
@@ -199,17 +175,11 @@
         "named": "never"
       }
     ],
-    "space-in-parens": [
-      1,
-      "never"
-    ],
+    "space-in-parens": [1, "never"],
     "space-infix-ops": 1,
     "valid-typeof": 2,
     "vars-on-top": 0,
-    "wrap-iife": [
-      2,
-      "inside"
-    ],
+    "wrap-iife": [2, "inside"],
     "import/prefer-default-export": 0,
 
     "react/forbid-prop-types": 0,
@@ -219,10 +189,7 @@
       "error",
       {
         "required": {
-          "some": [
-            "nesting",
-            "id"
-          ]
+          "some": ["nesting", "id"]
         }
       }
     ],
