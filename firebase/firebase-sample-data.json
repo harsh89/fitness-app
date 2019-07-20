@@ -1,93 +1,126 @@
 {
-  "challenges": [
-    {
-      "desc": "Buy yourself a cup of tea from Hatti Kappi",
-      "id": 1,
-      "image": "https://firebasestorage.googleapis.com/v0/b/react-native-starter-app.appspot.com/o/image-1.jpg?alt=media&token=9f7c839b-2d40-4660-a2a0-bf6c2f64a2e5",
-      "rules": [
-        "Please use staircase",
-        "Create a video/image and upload as proof of submission"
-      ],
-      "title": "Buy yourself a cup of tea",
-      "video": "https://www.youtube.com/watch?v=JVwH-JsiwNI"
+  "articles" : {
+    "-LkE5uu5xvzew47_PFmE" : {
+      "articleDesc" : "Asdf",
+      "datePosted" : 1563621568057,
+      "postedBy" : "Harsh Sharma"
     },
-    {
-      "desc": "Use standing desk for work",
-      "id": 2,
-      "image": "https://firebasestorage.googleapis.com/v0/b/react-native-starter-app.appspot.com/o/image-1.jpg?alt=media&token=9f7c839b-2d40-4660-a2a0-bf6c2f64a2e5",
-      "rules": [
-        "Please use standing desk in studio",
-        "Create a video/image and upload as proof of submission"
-      ],
-      "title": "Use standing desk",
-      "video": ""
+    "-LkE5wX0W3A8sFLDanmm" : {
+      "articleDesc" : "",
+      "datePosted" : 1563621574716,
+      "postedBy" : "Harsh Sharma"
     },
-    {
-      "desc": "dummy challenge",
-      "id": 3,
-      "image": "https://firebasestorage.googleapis.com/v0/b/react-native-starter-app.appspot.com/o/image-1.jpg?alt=media&token=9f7c839b-2d40-4660-a2a0-bf6c2f64a2e5",
-      "rules": [
-        "Please use staircase",
-        "Create a video/image and upload as proof of submission"
-      ],
-      "title": "Buy yourself a cup of tea",
-      "video": "https://www.youtube.com/watch?v=JVwH-JsiwNI"
-    }
-  ],
-  "discussions": [
-    {
-      "commentData": "this is a dummy comment",
-      "datePosted": "1563537903234",
-      "id": 1,
-      "postedBy": "RUGzO2Cv65ejRToqmGb9ZXosx9E3",
-      "threadId": 1
-    }
-  ],
-  "response": [
-    {
-      "challengeId": 1,
-      "comment": "Tea was sugerless",
-      "id": 1,
-      "image": "",
-      "userId": 1,
-      "video": ""
-    }
-  ],
-  "users": {
-    "RUGzO2Cv65ejRToqmGb9ZXosx9E3": {
-      "firstName": "Shardendu",
-      "lastLoggedIn": 1563541976787,
-      "lastName": "Kantha",
-      "signedUp": 1563526268416
-    },
-    "bNXKH9ZJOiT5dKG3Sp4bxNxjhNq2": {
-      "firstName": "Harsh",
-      "lastLoggedIn": 1563537903234,
-      "lastName": "Sharma",
-      "signedUp": 1563537887262
+    "-LkE78j70ivwnqCAGIqq" : {
+      "articleDesc" : "Asdf",
+      "datePosted" : 1563621890942,
+      "postedBy" : "Harsh Sharma"
     }
   },
-  "drinkingWaterReminder": [
-    {
-      "userId": "123"
-    }
-  ],
-  "articles": [
-    {
-      "id": 1,
-      "title": "this is a dummy thread",
-      "description": "This is dummy thread description",
-      "postedBy": "RUGzO2Cv65ejRToqmGb9ZXosx9E3",
-      "postedDate": "1563537903234",
-      "active": true
+  "challenges" : [ {
+    "desc" : "Buy yourself a cup of tea from Hatti Kappi",
+    "id" : 1,
+    "image" : "https://firebasestorage.googleapis.com/v0/b/react-native-starter-app.appspot.com/o/image-1.jpg?alt=media&token=9f7c839b-2d40-4660-a2a0-bf6c2f64a2e5",
+    "rules" : [ "Please use staircase", "Create a video/image and upload as proof of submission" ],
+    "title" : "Buy yourself a cup of tea",
+    "video" : "https://www.youtube.com/watch?v=JVwH-JsiwNI"
+  }, {
+    "desc" : "Use standing desk for work",
+    "id" : 2,
+    "image" : "https://firebasestorage.googleapis.com/v0/b/react-native-starter-app.appspot.com/o/image-1.jpg?alt=media&token=9f7c839b-2d40-4660-a2a0-bf6c2f64a2e5",
+    "rules" : [ "Please use standing desk in studio", "Create a video/image and upload as proof of submission" ],
+    "title" : "Use standing desk",
+    "video" : ""
+  }, {
+    "desc" : "dummy challenge",
+    "id" : 3,
+    "image" : "https://firebasestorage.googleapis.com/v0/b/react-native-starter-app.appspot.com/o/image-1.jpg?alt=media&token=9f7c839b-2d40-4660-a2a0-bf6c2f64a2e5",
+    "rules" : [ "Please use staircase", "Create a video/image and upload as proof of submission" ],
+    "title" : "Buy yourself a cup of tea",
+    "video" : "https://www.youtube.com/watch?v=JVwH-JsiwNI"
+  } ],
+  "discussions" : {
+    "-LkDTtZZafJAg_6ZeX8E" : {
+      "commentData" : "Asdfasdf",
+      "datePosted" : 1563611076830,
+      "postedBy" : "RUGzO2Cv65ejRToqmGb9ZXosx9E3",
+      "threadId" : 1
     },
-    {
-      "id": 2,
-      "title": "this is a dummy thread 2",
-      "description": "This is dummy thread description",
-      "postedBy": "RUGzO2Cv65ejRToqmGb9ZXosx9E3",
-      "postedDate": "1563537903234",
-      "active": true
+    "-LkDVkBvR_MURIwtvnla" : {
+      "commentData" : "Asdf",
+      "datePosted" : 1563611562749,
+      "postedBy" : "RUGzO2Cv65ejRToqmGb9ZXosx9E3",
+      "threadId" : 1
+    },
+    "-LkDWsjUtVNWDJQN5laY" : {
+      "commentData" : "Hello this is article 2 comment",
+      "datePosted" : 1563611859877,
+      "postedBy" : "RUGzO2Cv65ejRToqmGb9ZXosx9E3",
+      "threadId" : 2
+    },
+    "-LkDZe55GpxiAD5clR0I" : {
+      "commentData" : "Hello this is comment 2",
+      "datePosted" : 1563612586312,
+      "postedBy" : "RUGzO2Cv65ejRToqmGb9ZXosx9E3",
+      "threadId" : 2
+    },
+    "-LkDjnjNHnNjuak7lsqZ" : {
+      "commentData" : "This is me - harsh",
+      "datePosted" : 1563615509404,
+      "postedBy" : "Harsh Sharma",
+      "threadId" : 1
+    },
+    "-LkDpPQexaS-IYoezB_0" : {
+      "commentData" : "Asdfasdf",
+      "datePosted" : 1563616978603,
+      "postedBy" : "Harsh Sharma",
+      "threadId" : 1
+    },
+    "-LkDrpZYdyYTKIYFrca9" : {
+      "commentData" : "I like this very much",
+      "datePosted" : 1563617614056,
+      "postedBy" : "Harsh Sharma",
+      "threadId" : 2
     }
-  ]
+  },
+  "response" : [ {
+    "challengeId" : 1,
+    "comment" : "Tea was sugerless",
+    "id" : 1,
+    "image" : "",
+    "userId" : 1,
+    "video" : ""
+  } ],
+  "users" : {
+    "JPzk4SMBiSa13odo6frHKvXPHmx1" : {
+      "firstName" : "Vernon",
+      "lastLoggedIn" : 1563622000314,
+      "lastName" : "Goveas",
+      "signedUp" : 1563611589767
+    },
+    "RUGzO2Cv65ejRToqmGb9ZXosx9E3" : {
+      "drinkingWaterReminder" : {
+        "endAmPm" : "PM",
+        "endHr" : "05",
+        "endMin" : "30",
+        "reminderCreationDate" : 1563603552325,
+        "reminderInterval" : "01:30 hrs",
+        "startAmPm" : "AM",
+        "startHr" : "09",
+        "startMin" : "00",
+        "target" : "6",
+        "totalIntake" : 0,
+        "totalIntervalFinished" : 0
+      },
+      "firstName" : "Shardendu",
+      "lastLoggedIn" : 1563621980248,
+      "lastName" : "Kantha",
+      "signedUp" : 1563526268416
+    },
+    "bNXKH9ZJOiT5dKG3Sp4bxNxjhNq2" : {
+      "firstName" : "Harsh",
+      "lastLoggedIn" : 1563565121747,
+      "lastName" : "Sharma",
+      "signedUp" : 1563537887262
+    }
+  }
 }

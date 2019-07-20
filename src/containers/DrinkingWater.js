@@ -7,6 +7,7 @@ class DrinkingWater extends Component {
     Layout: PropTypes.func.isRequired,
     member: PropTypes.shape({}).isRequired,
     onFormSubmit: PropTypes.func.isRequired,
+    onIntakeSubmit: PropTypes.func.isRequired
   }
 
   state = {
@@ -23,7 +24,27 @@ class DrinkingWater extends Component {
     return onFormSubmit(data)
       .then(() => this.setState({
         loading: false,
-        success: 'Success - Logged in',
+        success: 'Reminder set successfully',
+        error: null,
+      })).catch((err) => {
+        this.setState({
+          loading: false,
+          success: null,
+          error: err,
+        });
+        throw err; // To prevent transition back
+      });
+  }
+
+  onIntakeSubmit = (data) => {
+    const { onIntakeSubmit } = this.props;
+
+    this.setState({ loading: true });
+
+    return onIntakeSubmit(data)
+      .then(() => this.setState({
+        loading: false,
+        success: 'Reminder set successfully',
         error: null,
       })).catch((err) => {
         this.setState({
@@ -46,6 +67,7 @@ class DrinkingWater extends Component {
         loading={loading}
         success={success}
         onFormSubmit={this.onFormSubmit}
+        onIntakeSubmit={this.onIntakeSubmit}
       />
     );
   }
@@ -56,7 +78,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  onFormSubmit: dispatch.drinkingWaterReminder.submitReminder,
+  onFormSubmit: dispatch.member.submitReminder,
+  onIntakeSubmit: dispatch.member.submitIntake
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(DrinkingWater);

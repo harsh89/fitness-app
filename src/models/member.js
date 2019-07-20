@@ -21,7 +21,7 @@ export default {
 
     setUserDetails(state, payload) {
       const {
-        firstName, lastName, signedUp, role,
+        firstName, lastName, signedUp, role, drinkingWaterReminder
       } = payload;
 
       return {
@@ -30,6 +30,7 @@ export default {
         lastName,
         signedUp,
         role,
+        drinkingWaterReminder
       };
     },
 
@@ -42,6 +43,78 @@ export default {
    * Effects/Actions
    */
   effects: dispatch => ({
+
+    submitIntake(formData) {
+      console.log(formData);
+      let totalIntervalFinished = `${formData.intakeObj.id},`;
+      let totalIntake =  formData.drinkingWaterReminder.totalIntake + formData.intakeObj.intake;
+      return FirebaseRef.child(`users/${formData.uid}/drinkingWaterReminder`).update({ totalIntervalFinished, totalIntake });
+      
+    },
+
+    submitReminder(formData) {
+      const {
+        startHr,
+        startMin,
+        startAmPm,
+        endHr,
+        endMin,
+        endAmPm,
+        reminderInterval,
+        target
+      } = formData;
+
+      return new Promise(async (resolve, reject) => {
+        const UID = await Firebase.auth().currentUser.uid;
+        if (!UID) return reject({ message: errorMessages.memberNotAuthd });
+
+        // Validation rules
+        if (
+          !startHr ||
+          startHr.length === 0 ||
+          !startHr ||
+          startMin.length === 0 ||
+          !startAmPm ||
+          startAmPm.length === 0
+        )
+          return reject({ message: errorMessages.missingStartTime });
+        if (
+          !endHr ||
+          endHr.length === 0 ||
+          !endHr ||
+          endMin.length === 0 ||
+          !endAmPm ||
+          endAmPm.length === 0
+        )
+          return reject({ message: errorMessages.missingEndTime });
+        if (!reminderInterval || reminderInterval.length === 0)
+          return reject({ message: errorMessages.missingReminderInterval });
+        if (!target || target.length === 0) return reject({ message: errorMessages.missingTarget });
+        const drinkingWaterReminder = {
+          startHr,
+          startMin,
+          startAmPm,
+          endHr,
+          endMin,
+          endAmPm,
+          reminderInterval,
+          target,
+          totalIntervalFinished: 0,
+          totalIntake: 0,
+          reminderCreationDate: Firebase.database.ServerValue.TIMESTAMP
+        };
+
+        return FirebaseRef.child(`users/${UID}`)
+          .update({ drinkingWaterReminder })
+          .then(() => {
+            this.listenForMemberProfileUpdates(dispatch)
+            resolve();
+          })
+          .catch(reject);
+      }).catch(err => {
+        throw err.message;
+      });
+    },
     /**
      * Sign Up
      *
