@@ -36,6 +36,7 @@
     "bootstrap": "^4.3.1",
     "core-js": "^3.1.4",
     "expo": "^32.0.6",
+    "expokit": "^32.1.1",
     "firebase": "^6.3.1",
     "native-base": "^2.12.1",
     "prop-types": "^15.7.2",
@@ -45,6 +46,7 @@
     "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",
     "react-native-material-dropdown": "^0.11.1",
     "react-native-router-flux": "4.0.6",
+    "react-native-scripts": "^2.0.1",
     "react-redux": "^6.0.0",
     "react-router-dom": "^4.2.2",
     "react-timer-mixin": "^0.13.4",
@@ -52,6 +54,7 @@
     "redux": "^4.0.1",
     "redux-persist": "^5.10.0",
     "redux-thunk": "^2.3.0",
+    "watchman": "^1.0.0",
     "yarn": "^1.17.3"
   },
   "devDependencies": {

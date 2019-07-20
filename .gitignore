@@ -27,4 +27,6 @@ local.properties
 
 # Build
 build/
+ios
+android
 
