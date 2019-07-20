@@ -142,7 +142,7 @@ class Reminder extends React.Component {
       reminders.push(
         <ListItem key={i}>
           <CheckBox
-            checked={this.state.currentInterval.id === i}
+            checked={this.state.currentInterval.id === i || reminderSchedule.totalIntervalFinished.indexOf(i) > -1}
             onPress={() => this.toggleIntakeForm('inputIntake', scheduleTxt, i)}
           />
           <Body>

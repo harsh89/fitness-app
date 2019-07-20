@@ -47,7 +47,7 @@ export default {
 
     submitIntake(formData) {
       console.log(formData);
-      let totalIntervalFinished = `${formData.intakeObj.currentInterval.id},`;
+      let totalIntervalFinished = formData.drinkingWaterReminder.totalIntervalFinished + `${formData.intakeObj.currentInterval.id},`;
       let totalIntake =  Number(formData.drinkingWaterReminder.totalIntake) + Number(formData.intakeObj.intake);
       // return FirebaseRef.child(`users/${formData.uid}/drinkingWaterReminder`).update({ totalIntervalFinished, totalIntake });
       return new Promise(async (resolve, reject) => {
