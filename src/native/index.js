@@ -3,14 +3,15 @@ import { StatusBar, Platform } from 'react-native';
 import { Font } from 'expo';
 import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
-import { Router, Stack } from 'react-native-router-flux';
+import { Router, Stack, Scene, ActionConst } from 'react-native-router-flux';
 import { PersistGate } from 'redux-persist/es/integration/react';
+import { Firebase, FirebaseRef } from '../lib/firebase';
 
 import { Root, StyleProvider } from 'native-base';
 import getTheme from '../../native-base-theme/components';
 import theme from '../../native-base-theme/variables/commonColor';
 
-import Routes from './routes/index';
+import { LoggedInUserRoutes, guestUserRoutes } from './routes/index';
 import Loading from './components/UI/Loading';
 
 // Hide StatusBar on Android as it overlaps tabs
@@ -22,7 +23,7 @@ export default class App extends React.Component {
     persistor: PropTypes.shape({}).isRequired,
   }
 
-  state = { loading: true }
+  state = { loading: true, loggedIn: false }
 
   async componentWillMount() {
     await Font.loadAsync({
@@ -31,7 +32,29 @@ export default class App extends React.Component {
       Ionicons: require('@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/Ionicons.ttf'),
     });
 
-    this.setState({ loading: false });
+    if (!this.state.loggedIn) {
+      this.getMemberData().then(loggedIn => {
+        this.setState({ loading: false, loggedIn });
+      });
+    } else {
+      this.setState({ loading: false });
+    }
+  }
+
+  /**
+     * Get the current Member's Details
+     *
+     * @returns {Promise}
+     */
+  getMemberData() {
+    if (Firebase === null) return new Promise(resolve => resolve);
+
+    // Ensure token is up to date
+    return new Promise((resolve) => {
+      Firebase.auth().onAuthStateChanged((loggedIn) => {
+        return new Promise(() => resolve(loggedIn));
+      });
+    });
   }
 
   render() {
@@ -49,9 +72,14 @@ export default class App extends React.Component {
           >
             <StyleProvider style={getTheme(theme)}>
               <Router>
-                <Stack key="root">
-                  {Routes}
-                </Stack>
+                <Scene key="root">
+                  <Scene initial={!this.state.loggedIn} hideNavBar panHandlers={null}>
+                    {guestUserRoutes}
+                  </Scene>
+                  <Scene initial={this.state.loggedIn} hideNavBar panHandlers={null}>
+                    {LoggedInUserRoutes}
+                  </Scene>
+                </Scene>
               </Router>
             </StyleProvider>
           </PersistGate>

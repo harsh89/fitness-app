@@ -1,5 +1,5 @@
 import React from 'react';
-import { Scene, Tabs, Stack } from 'react-native-router-flux';
+import { Scene, Tabs, Stack, ActionConst } from 'react-native-router-flux';
 import { Icon } from 'native-base';
 
 import DefaultProps from '../constants/navigation';
@@ -8,6 +8,10 @@ import AppConfig from '../../constants/config';
 import ChallengesContainer from '../../containers/Challenges';
 import ChallengeListing from '../components/Challenge/Listing';
 import ChallengeDetailComponent from '../components/Challenge/Single';
+
+import ArticlesContainer from '../../containers/Articles';
+import ArticleListing from '../components/Article/Listing';
+import ArticleDetailComponent from '../components/Article/Details';
 
 import SignUpContainer from '../../containers/SignUp';
 import SignUpComponent from '../components/User/SignUp';
@@ -27,17 +31,10 @@ import ProfileComponent from '../components/User/Profile';
 import DrinikingWaterContainer from '../../containers/DrinkingWater';
 import DrinikingWaterComponent from '../components/DrinkingWater/Reminder';
 
-const Index = (
-  <Stack hideNavBar>
-    <Scene hideNavBar>
-      <Tabs
-        key="tabbar"
-        swipeEnabled
-        type="replace"
-        showLabel={false}
-        {...DefaultProps.tabProps}
-      >
-        <Stack
+const LoggedInUserRoutes = (
+  <Stack hideNavBar type={ActionConst.REPLACE} key="main">
+    <Tabs key="tabbar" type="replace" showLabel={false} {...DefaultProps.tabProps}>
+    <Stack
           key="drinkingWater"
           title="REMINDER"
           title={AppConfig.appName.toUpperCase()}
@@ -47,58 +44,68 @@ const Index = (
           <Scene key="drinkingWater" component={DrinikingWaterContainer} Layout={DrinikingWaterComponent} />
         </Stack>
 
-        <Stack
-          key="challenges"
-          title="CHALLENGES"
-          icon={() => <Icon name="book" {...DefaultProps.icons} />}
-          {...DefaultProps.navbarProps}
-        >
-          <Scene key="challenges" component={ChallengesContainer} Layout={ChallengeListing} />
-        </Stack>
+      <Stack
+        key="challenges"
+        title="CHALLENGES"
+        icon={() => <Icon name="book" {...DefaultProps.icons} />}
+        {...DefaultProps.navbarProps}
+        panHandlers={null}
+      >
+        <Scene key="challenges" component={ChallengesContainer} Layout={ChallengeListing} />
+      </Stack>
 
-        <Stack
-          key="profile"
-          title="PROFILE"
-          icon={() => <Icon name="contact" {...DefaultProps.icons} />}
-          {...DefaultProps.navbarProps}
-        >
-          <Scene key="profileHome" component={MemberContainer} Layout={ProfileComponent} />
-          <Scene
-            back
-            key="signUp"
-            title="SIGN UP"
-            {...DefaultProps.navbarProps}
-            component={SignUpContainer}
-            Layout={SignUpComponent}
-          />
-          <Scene
-            back
-            key="login"
-            title="LOGIN"
-            {...DefaultProps.navbarProps}
-            component={LoginContainer}
-            Layout={LoginComponent}
-          />
-          <Scene
-            back
-            key="forgotPassword"
-            title="FORGOT PASSWORD"
-            {...DefaultProps.navbarProps}
-            component={ForgotPasswordContainer}
-            Layout={ForgotPasswordComponent}
-          />
-          <Scene
-            back
-            key="updateProfile"
-            title="UPDATE PROFILE"
-            {...DefaultProps.navbarProps}
-            component={UpdateProfileContainer}
-            Layout={UpdateProfileComponent}
-          />
-        </Stack>
-      </Tabs>
-    </Scene>
+      <Stack
+        key="articles"
+        title="ARTICLES"
+        icon={() => <Icon name="book" {...DefaultProps.icons} />}
+        {...DefaultProps.navbarProps}
+      >
+        <Scene key="articles" component={ArticlesContainer} Layout={ArticleListing} />
+      </Stack>
 
+      <Stack
+        key="profile"
+        title="PROFILE"
+        type={ActionConst.RESET}
+        icon={() => <Icon name="contact" {...DefaultProps.icons} />}
+        {...DefaultProps.navbarProps}
+        panHandlers={null}
+      >
+        <Scene key="profileHome" component={MemberContainer} Layout={ProfileComponent} />
+        <Scene
+          back
+          key="signUp"
+          title="SIGN UP"
+          {...DefaultProps.navbarProps}
+          component={SignUpContainer}
+          Layout={SignUpComponent}
+        />
+        <Scene
+          back
+          key="login"
+          title="LOGIN"
+          {...DefaultProps.navbarProps}
+          component={LoginContainer}
+          Layout={LoginComponent}
+        />
+        <Scene
+          back
+          key="forgotPassword"
+          title="FORGOT PASSWORD"
+          {...DefaultProps.navbarProps}
+          component={ForgotPasswordContainer}
+          Layout={ForgotPasswordComponent}
+        />
+        <Scene
+          back
+          key="updateProfile"
+          title="UPDATE PROFILE"
+          {...DefaultProps.navbarProps}
+          component={UpdateProfileContainer}
+          Layout={UpdateProfileComponent}
+        />
+      </Stack>
+    </Tabs>
     <Scene
       back
       clone
@@ -108,7 +115,45 @@ const Index = (
       component={ChallengesContainer}
       Layout={ChallengeDetailComponent}
     />
+
+    <Scene
+      back
+      clone
+      key="article"
+      title="ARTICLE"
+      {...DefaultProps.navbarProps}
+      component={ArticlesContainer}
+      Layout={ArticleDetailComponent}
+    />
   </Stack>
 );
 
-export default Index;
+const guestUserRoutes = (
+  <Stack type={ActionConst.REPLACE} key="auth">
+    <Scene
+      key="login"
+      title="LOGIN"
+      {...DefaultProps.navbarProps}
+      component={LoginContainer}
+      Layout={LoginComponent}
+      hideNavBar
+      panHandlers={null}
+    />
+    <Scene
+      key="signUp"
+      title="SIGN UP"
+      {...DefaultProps.navbarProps}
+      component={SignUpContainer}
+      Layout={SignUpComponent}
+    />
+    <Scene
+      key="forgotPassword"
+      title="FORGOT PASSWORD"
+      {...DefaultProps.navbarProps}
+      component={ForgotPasswordContainer}
+      Layout={ForgotPasswordComponent}
+    />
+  </Stack>
+);
+
+export { LoggedInUserRoutes, guestUserRoutes };

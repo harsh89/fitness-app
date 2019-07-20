@@ -41,8 +41,8 @@ class SignUp extends React.Component {
   handleSubmit = () => {
     const { onFormSubmit } = this.props;
     onFormSubmit(this.state)
-      .then(() => setTimeout(() => { Actions.pop(); Actions.login(); }, 1000))
-      .catch(() => {});
+      .then(() => setTimeout(() => { Actions.pop(); }, 1000))
+      .catch(() => { });
   }
 
   render() {

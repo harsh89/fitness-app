@@ -1,5 +1,6 @@
 import { errorMessages } from '../constants/messages';
 import { Firebase, FirebaseRef } from '../lib/firebase';
+import { Actions } from 'react-native-router-flux';
 
 export default {
   state: {}, // initial state
@@ -318,6 +319,7 @@ export default {
       return new Promise((resolve, reject) => Firebase.auth().signOut()
         .then(() => {
           this.resetUser();
+          Actions.auth();
           resolve();
         }).catch(reject)).catch((err) => { throw err.message; });
     },

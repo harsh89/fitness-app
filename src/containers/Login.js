@@ -1,6 +1,10 @@
-import React, { Component } from 'react';
+import React, {
+  Component
+} from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import {
+  connect
+} from 'react-redux';
 
 class Login extends Component {
   static propTypes = {
@@ -16,9 +20,13 @@ class Login extends Component {
   }
 
   onFormSubmit = (data) => {
-    const { onFormSubmit } = this.props;
+    const {
+      onFormSubmit
+    } = this.props;
 
-    this.setState({ loading: true });
+    this.setState({
+      loading: true
+    });
 
     return onFormSubmit(data)
       .then(() => this.setState({
@@ -36,17 +44,33 @@ class Login extends Component {
   }
 
   render = () => {
-    const { member, Layout } = this.props;
-    const { error, loading, success } = this.state;
+    const {
+      member,
+      Layout
+    } = this.props;
+    const {
+      error,
+      loading,
+      success
+    } = this.state;
 
-    return (
-      <Layout
-        error={error}
-        member={member}
-        loading={loading}
-        success={success}
-        onFormSubmit={this.onFormSubmit}
-      />
+    return (<
+      Layout error={
+        error
+      }
+      member={
+        member
+      }
+      loading={
+        loading
+      }
+      success={
+        success
+      }
+      onFormSubmit={
+        this.onFormSubmit
+      }
+    />
     );
   }
 }
