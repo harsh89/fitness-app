@@ -32,19 +32,6 @@ const ArticleListing = ({ error, loading, articles, reFetch }) => {
           data={articles}
           renderItem={({ item }) => (
             <Card transparent style={{ paddingHorizontal: 6 }}>
-              {/* <CardItem cardBody>
-                <TouchableOpacity onPress={() => onPress(item)} style={{ flex: 1 }}>
-                  <Image
-                    source={{ uri: item.image }}
-                    style={{
-                      height: 100,
-                      width: null,
-                      flex: 1,
-                      borderRadius: 5,
-                    }}
-                  />
-                </TouchableOpacity>
-              </CardItem> */}
               <CardItem cardBody>
                 <Body>
                   <Spacer size={10} />

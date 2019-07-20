@@ -11,7 +11,6 @@ export default {
   ],
   comments: [
     {
-      id: 0,
       threadId: 0,
       postedBy: 'nobody',
       commentData: 'this is a dummy comment',
