@@ -20,13 +20,6 @@ const DiscDetails = ({ error, articles, articleId }) => {
   // article not found
   if (!article) return <Error content={errorMessages.article404} />;
 
-  // Build Rules listing
-  // const rules = article.rules.map(item => (
-  //   <ListItem key={item} rightIcon={{ style: { opacity: 0 } }}>
-  //     <Text>{item}</Text>
-  //   </ListItem>
-  // ));
-
   return (
     <Container>
       <Content padder>
@@ -50,7 +43,6 @@ const DiscDetails = ({ error, articles, articleId }) => {
             <Text>Comments</Text>
           </CardItem>
           <CardItem>
-            <Content>{/* <List>{rules}</List> */}</Content>
             <Content>
               <CommentsContainer article={article}></CommentsContainer>
             </Content>

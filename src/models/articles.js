@@ -34,6 +34,7 @@ export default {
     replaceComments(state, payload) {
       let comments = [];
       // Pick out the props I need
+
       if (payload && typeof payload === 'object') {
         comments = payload.map(item => ({
           id: item.id,
@@ -60,12 +61,8 @@ export default {
     getArticles() {
       if (Firebase === null) return () => new Promise(resolve => resolve());
 
-      console.log('load articles');
-
       return new Promise(resolve =>
         FirebaseRef.child('articles').on('value', snapshot => {
-          console.log('load articles inside');
-
           const data = snapshot.val() || [];
           console.log('article data: ' + data);
           this.replaceArticles(data);
@@ -76,23 +73,59 @@ export default {
       });
     },
 
-    getComments() {
+    getComments(id) {
       if (Firebase === null) return () => new Promise(resolve => resolve());
 
-      console.log('load comments');
+      console.log('load comments for id : ' + id);
 
       return new Promise(resolve =>
-        FirebaseRef.child('discussions').on('value', snapshot => {
-          console.log('load comments inside');
+        FirebaseRef.child('discussions')
+          .orderByChild('threadId')
+          .equalTo(id)
+          .on('value', snapshot => {
+            // let data = snapshot.val() || [];
+            console.log('key: ' + snapshot.key);
+            console.log(data);
 
-          const data = snapshot.val() || [];
-          console.log('comments data: ' + data);
-          this.replaceComments(data);
-          return resolve();
-        })
+            let data = [];
+
+            snapshot.forEach(function(childSnapshot) {
+              var childKey = childSnapshot.key;
+              var childData = childSnapshot.val();
+
+              console.log('key: ' + childKey);
+              console.log('key: ' + childData);
+
+              let commentObj = childData;
+
+              commentObj.id = childKey;
+              commentObj.datePosted =
+                new Date(commentObj.datePosted).toDateString() +
+                ' ' +
+                new Date(commentObj.datePosted).toLocaleTimeString();
+
+              data.push(commentObj);
+            });
+
+            this.replaceComments(data);
+            return resolve();
+          })
       ).catch(err => {
         throw err.message;
       });
+    },
+
+    postComment(params) {
+      if (Firebase === null) return () => new Promise(resolve => resolve());
+      console.log(params);
+
+      console.log('post comments for id : ' + params.threadId);
+
+      var newPostKey = FirebaseRef.child('discussions').push().key;
+      var updates = {};
+      updates['/discussions/' + newPostKey] = params;
+
+      return FirebaseRef.update(updates);
     }
   })
 };
