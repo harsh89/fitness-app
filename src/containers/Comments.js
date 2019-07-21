@@ -109,7 +109,7 @@ class CommentsListing extends Component {
     return (
       <Content>
         <Form style={{ width: '100%', height: 150, flex: 1, border: 0 }}>
-          <Label>Add a comment</Label>
+          <Text>Add a comment</Text>
           <Textarea
             disabled={this.state.loading}
             style={{ width: 302, height: 200, flex: 1, padding: 0 }}
@@ -139,7 +139,7 @@ class CommentsListing extends Component {
 }
 
 const mapStateToProps = state => ({
-  comments: state.articles.comments || {},
+  comments: state.articles.comments || [],
   member: state.member || {}
 });
 

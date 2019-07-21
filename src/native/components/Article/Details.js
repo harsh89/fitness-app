@@ -27,7 +27,7 @@ const DiscDetails = ({ error, articles, articleId }) => {
     <Container>
       <Content padder>
         <Spacer size={25} />
-        <H3>{article.title}</H3>
+        <Text>{article.title}</Text>
         <Spacer size={15} />
         <Card>
           <CardItem header bordered>
