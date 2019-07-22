@@ -14,7 +14,7 @@ const DiscDetails = ({ error, articles, articleId }) => {
   // Get this article from all articles
   let article = null;
   if (articleId && articles) {
-    article = articles.find(item => item.id, 10 === articleId, 10);
+    article = articles.find(item => item.id === articleId);
     console.log('article data');
     console.log(articleId);
     console.log(article);

@@ -33,14 +33,9 @@ const ArticleListing = ({ error, loading, articles, reFetch, memberData, submitA
 
   handleChange = (name, val) => {
     articleDesc = val;
-    console.log(articleDesc);
   };
 
   handleSubmit = () => {
-    console.log('article added: ' + articleDesc);
-    console.log(articleDesc);
-    console.log(this.props);
-
     const articleData = {
       postedBy: `${memberData.firstName} ${memberData.lastName}`,
       articleDesc: articleDesc,

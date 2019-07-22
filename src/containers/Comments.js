@@ -45,7 +45,8 @@ class CommentsListing extends Component {
   componentDidMount = () => this.fetchCommentsData(this.props.article.id);
 
   fetchCommentsData = data => {
-    console.log('fetch comments');
+    // console.log(this.props.article);
+    // console.log('fetch comments for' + id);
     const { fetchComments } = this.props;
     const id = data;
 
@@ -90,21 +91,27 @@ class CommentsListing extends Component {
     // Comment listing
 
     const { comments } = this.props;
-    const commentList = comments.map(item => (
-      <Card key={item.id}>
-        <CardItem header bordered>
-          <Text>Posted by: {item.postedBy}</Text>
-        </CardItem>
-        <CardItem bordered>
-          <Body>
-            <Text>{item.commentData}</Text>
-          </Body>
-        </CardItem>
-        <CardItem footer bordered>
-          <Text>Posted On: {item.datePosted}</Text>
-        </CardItem>
-      </Card>
-    ));
+    let commentList;
+
+    if (comments.length > 0) {
+      commentList = comments.map(item => (
+        <Card key={item.id}>
+          <CardItem header bordered>
+            <Text>Posted by: {item.postedBy}</Text>
+          </CardItem>
+          <CardItem bordered>
+            <Body>
+              <Text>{item.commentData}</Text>
+            </Body>
+          </CardItem>
+          <CardItem footer bordered>
+            <Text>Posted On: {item.datePosted}</Text>
+          </CardItem>
+        </Card>
+      ));
+    } else {
+      commentList = <Text>No comments to show</Text>;
+    }
 
     return (
       <Content>
@@ -130,7 +137,7 @@ class CommentsListing extends Component {
             <Text>Comments</Text>
           </CardItem>
           <CardItem>
-            <Content>{comments && comments.length && commentList}</Content>
+            <Content>{commentList}</Content>
           </CardItem>
         </Card>
       </Content>
